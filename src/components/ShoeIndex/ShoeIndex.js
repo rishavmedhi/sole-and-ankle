@@ -51,6 +51,7 @@ const Wrapper = styled.div`
 
 const LeftColumn = styled.div`
   align-self: flex-start;
+  margin-top: 12px;
 `;
 
 const MainColumn = styled.div`
