@@ -58,13 +58,10 @@ const Link = styled.a`
 const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
-  width: 340px;
-  /* flex: 1;  flex: 1 1 340px; */
 `;
 
 const ImageWrapper = styled.div`
   position: relative;
-  flex-basis: 340px;
 `;
 
 const Image = styled.img`
