@@ -31,11 +31,27 @@ const ShoeCard = ({
       ? 'new-release'
       : 'default'
 
+  const variantStyles = {
+    "on-sale":{
+      "background": "#C5295D",
+      "text": "Sale"
+    },
+    "new-release": {
+      "background": "#6868D9",
+      "text": "Just Released!"
+    },
+    "default": {
+      "background":"",
+      "text": ""
+    }
+  };
+
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
+          <VariantTag style={{"--backgroundColor": variantStyles[variant].background}}type={variant}>{variantStyles[variant].text}</VariantTag>
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
@@ -86,6 +102,20 @@ const ColorInfo = styled.p`
 const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.primary};
+`;
+
+const VariantTag = styled.span`
+  display: ${props => props.type==="default"?"none":"initial"};
+  position: absolute;
+  top: 12px;
+  right: 0;
+  font-size: 14px;
+  background-color: var(--backgroundColor);
+  color: #fff;
+  font-weight: 700;
+  padding: 11px;
+  margin-right: -4px;
+  border-radius: 2px;
 `;
 
 export default ShoeCard;
