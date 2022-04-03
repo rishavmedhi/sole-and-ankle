@@ -51,7 +51,8 @@ const ShoeCard = ({
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
-          <VariantTag style={{"--backgroundColor": variantStyles[variant].background}}type={variant}>{variantStyles[variant].text}</VariantTag>
+          {variant === "on-sale" && <SalesTag>Sale</SalesTag>}
+          {variant === "new-release" && <NewTag>Just Released!</NewTag>}
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
@@ -126,5 +127,13 @@ const VariantTag = styled.span`
   padding: 0 10px;
   border-radius: 2px;
 `;
+
+const SalesTag = styled(VariantTag)`
+  background-color: ${COLORS.primary};
+`;
+
+const NewTag = styled(VariantTag)`
+background-color: ${COLORS.secondary};
+`
 
 export default ShoeCard;
